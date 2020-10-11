@@ -1,22 +1,31 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('clean', function () {
+    $configClear = Artisan::call('config:clear');
+    $configClear = Artisan::call('route:clear');
+    $configClear = Artisan::call('cache:clear');
+    $configClear = Artisan::call('config:cache');
+    $configClear = Artisan::call('view:clear');
+
+    return  'Sistema limpiado con éxito';
+});
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/home', 'HomeController@index')->name('home');
+});
