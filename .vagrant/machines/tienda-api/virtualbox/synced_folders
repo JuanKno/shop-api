@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant/api-shop":{"type":null,"mount_options":["uid=1000","gid=1000"],"guestpath":"/home/vagrant/api-shop","hostpath":"C:/xampp/htdocs/api-shop","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/xampp/htdocs/api-shop","disabled":false,"__vagrantfile":true}}}
